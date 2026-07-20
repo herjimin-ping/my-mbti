@@ -14,10 +14,10 @@ mbti_pokemon = {
         ],
     },
     "INTP": {
-        "desc": "탐구심이 강하고 독창적인 INTP에게는 분석적이고 독특한 포켓몬이 어울려요.",
+        "desc": "탐구심이 강하고 독창적인 INTP에게는 신비롭고 개성 강한 포켓몬이 어울려요.",
         "pokemons": [
-            {"name": "폴리곤2", "dex": 233, "desc": "데이터와 논리로 이루어진 디지털 포켓몬. 이론을 탐구하는 INTP와 닮았어요."},
-            {"name": "슈바르고", "dex": 437, "desc": "복잡한 내부 구조를 가진 독특한 강철/에스퍼 타입."},
+            {"name": "팬텀", "dex": 94, "desc": "장난기 넘치고 예측 불가능한 사고를 즐기는 유령/독 타입. 엉뚱한 발상을 좋아하는 INTP와 닮았어요."},
+            {"name": "네이티오", "dex": 178, "desc": "조용히 미래를 통찰하는 신비로운 에스퍼/비행 타입."},
         ],
     },
     "ENTJ": {
@@ -80,7 +80,7 @@ mbti_pokemon = {
         "desc": "체계적이고 실행력이 강한 ESTJ에게는 강력하고 조직적인 포켓몬이 어울려요.",
         "pokemons": [
             {"name": "핫삼", "dex": 212, "desc": "체계적이고 강력한 실행력을 가진 강철/벌레 타입."},
-            {"name": "자포코일", "dex": 462, "desc": "규율과 효율을 중시하는 전기/강철 타입."},
+            {"name": "니드킹", "dex": 34, "desc": "강한 힘과 카리스마로 무리를 통솔하는 독/땅 타입."},
         ],
     },
     "ESFJ": {
@@ -137,7 +137,8 @@ if st.button("포켓몬 추천 받기 ✨"):
     cols = st.columns(len(data["pokemons"]))
     for col, p in zip(cols, data["pokemons"]):
         with col:
-            st.image(get_image_url(p["dex"]), caption=p["name"], use_container_width=True)
+            st.markdown(f"<h3 style='text-align: center;'>🐾 {p['name']}</h3>", unsafe_allow_html=True)
+            st.image(get_image_url(p["dex"]), use_container_width=True)
             st.write(p["desc"])
 
     st.success(f"{selected_mbti} 유형에게는 위 포켓몬들이 잘 어울려요!")
